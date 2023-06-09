@@ -8,8 +8,10 @@ class ContatoController extends Controller{
 
     public function contato(){
 
-        return view('site.contato',['titulo' => 'Contato']);
+        //var_dump($_POST);
 
+        return view('site.contato',['titulo' => 'Contato']);
+    
     }
 
 }
