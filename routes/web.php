@@ -33,8 +33,6 @@ Route::get('/sobre-nos', 'SobreNosController@sobreNos')->name('site.sobrenos');
 
 Route::get('/contato', 'ContatoController@contato')->name('site.contato');
 
-Route::post('/contato', 'ContatoController@contato')->name('site.contato.post');
-
 //nome, categoria, assunto, mensagem
 
 Route::get('/contato/{nome}/{categoria_id}', 
