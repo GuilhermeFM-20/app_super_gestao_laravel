@@ -8,9 +8,9 @@ class SobreNosController extends Controller{
 
     public function sobreNos(){
         
-        var_dump($_POST);
+        //var_dump($_POST);
 
-        return view('site.sobre-nos');
+        return view('site.sobrenos');
 
     }
 

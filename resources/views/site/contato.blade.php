@@ -24,7 +24,7 @@
     <div class="informacao-pagina">
         <div class="contato-principal">
            
-            @component('site.layouts._components.form_contato',['borda'=>'borda-preta']);
+            @component('site.layouts._components.form_contato',['borda'=>'borda-preta','motivo_contatos'=>$motivo_contatos]);
             @endcomponent
 
         </div>
