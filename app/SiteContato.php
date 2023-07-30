@@ -8,6 +8,6 @@ class SiteContato extends Model{
 
     //
 
-    protected $fillable = ['nome','telefone','email','motivo_contato','text'];
+    protected $fillable = ['nome','telefone','email','motivo_contatos_id','text'];
 
 }
