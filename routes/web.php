@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\LogAcessoMiddleware;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +29,7 @@ use App\Http\Middleware\LogAcessoMiddleware;
 
 */
 
-Route::middleware(LogAcessoMiddleware::class)->get('/', 'PrincipalController@principal')->name('site.index');
+Route::get('/', 'PrincipalController@principal')->name('site.index');
 
 Route::get('/sobre-nos', 'SobreNosController@sobreNos')->name('site.sobrenos');
 
@@ -48,15 +49,16 @@ Route::get('/contato/{nome}/{categoria_id}',
 
 )->where('categoria_id','[0-9]+')->where('nome','[A-Za-z]+');
 
-Route::get('/login',function(){ return 'Login';})->name('site.login');
+Route::get('/login/{erro?}','LoginController@index')->name('site.login');
+Route::post('/login','LoginController@autenticacao')->name('site.login');
 
-Route::prefix('/app')->group(function(){
-
-    Route::get('/clientes',function(){ return 'Clientes';})->name('app.clientes');
-
-    Route::get('/fornecedores', 'FornecedorController@index')->name('app.fornecedores');
-
-    Route::get('/contato',function(){ return 'Contato';})->name('app.produtos');
+//Route::middleware('autenticacao:ldap,visitante')->prefix('/app')->group(function(){
+Route::middleware('autenticacao:ldap,visitante')->prefix('/app')->group(function(){
+    Route::get('/home','HomeController@index')->name('app.home');
+    Route::get('/sair','LoginController@sair')->name('app.sair');
+    Route::get('/cliente','ClienteController@index')->name('app.cliente');
+    Route::get('/fornecedor', 'FornecedorController@index')->name('app.fornecedor');
+    Route::get('/produto','ProdutoController@index')->name('app.produto');
 
 });
 

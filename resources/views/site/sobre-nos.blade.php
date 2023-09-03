@@ -2,7 +2,7 @@
 @extends('site.layouts.basico')
 @section('titulo','Sobre Nós')
 @section('conteudo')  
-<div class="topo">
+{{-- <div class="topo">
 
 <div class="logo">
     <img src="{{ asset('img/logo.png') }}">
@@ -15,7 +15,7 @@
         <li><a href="{{ route('site.contato') }}">Contato</a></li>
     </ul>
 </div>
-</div>
+</div> --}}
 
 <div class="conteudo-pagina">
 <div class="titulo-pagina">
