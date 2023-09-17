@@ -43,8 +43,8 @@
                             <td>{{$fornecedor['site']}}</td>
                             <td>{{$fornecedor['uf']}}</td>
                             <td>{{$fornecedor['email']}}</td>
-                            <td>Modificar</td>
-                            <td>Excluir</td>
+                            <td><a href="">Modificar</a></td>
+                            <td><a href="{{ route('app.fornecedor.excluir',['id' => $fornecedor['id']]) }}">Excluir</a></td>
                         </tr>    
                     @endforeach
                </table>

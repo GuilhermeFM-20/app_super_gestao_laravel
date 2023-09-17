@@ -11,7 +11,7 @@ class FornecedorController extends Controller{
         
         $fornecedor = Fornecedor::all();
 
-        return view('app.fornecedor.index',['fornecedores' => $fornecedor]);
+        return view('app.fornecedor.index',['fornecedores' => $fornecedor,'request' => array('nome'=>'','site'=>'','uf'=>'','email'=>'')]);
 
     }
 
@@ -61,6 +61,24 @@ class FornecedorController extends Controller{
         }
 
         return view('app.fornecedor.adicionar',[ 'msg' => $msg]);
+
+    }
+
+    public function excluir(Request $request){
+
+        Fornecedor::find($request->input('id'))->delete();
+
+        $fornecedor = Fornecedor::all();
+
+        return view('app.fornecedor.index',['fornecedores' => $fornecedor,'request' => array('nome'=>'','site'=>'','uf'=>'','email'=>'')]);
+
+    }
+
+    public function modificar(Request $request){
+
+        $fornecedor = Fornecedor::find($request->input('id'));
+
+        return view('app.fornecedor.adicionar',['fornecedor' => $fornecedor]);
 
     }
 
